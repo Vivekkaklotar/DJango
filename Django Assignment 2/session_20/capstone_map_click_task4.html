@@ -1,0 +1,27 @@
+<!-- Google Maps Click Selection -->
+<div id="map" style="height: 400px; width: 100%;"></div>
+<input type="text" id="pickup-lat" name="lat" readonly>
+<input type="text" id="pickup-lng" name="lng" readonly>
+
+<script>
+function initMap() {
+    var defaultLoc = {lat: 12.9716, lng: 77.5946};
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 13,
+        center: defaultLoc
+    });
+    
+    var marker = new google.maps.Marker({
+        position: defaultLoc,
+        map: map
+    });
+    
+    map.addListener('click', function(e) {
+        var clickedLoc = e.latLng;
+        marker.setPosition(clickedLoc);
+        document.getElementById('pickup-lat').value = clickedLoc.lat();
+        document.getElementById('pickup-lng').value = clickedLoc.lng();
+    });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=initMap" async defer></script>

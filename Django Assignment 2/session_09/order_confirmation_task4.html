@@ -1,0 +1,26 @@
+<!-- templates/emails/order_confirmation.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+        .card { background: white; padding: 20px; border-radius: 8px; }
+        .orange { color: #fc8019; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2 class="orange">Swiggy Order Confirmed!</h2>
+        <p>Hi <strong>{{ order.customer_name }}</strong>,</p>
+        <p>Your order from <strong>{{ order.restaurant_name }}</strong> has been placed!</p>
+        <hr>
+        <h4>Order Summary (#{{ order.order_id }}):</h4>
+        <ul>
+            {% for item in order.items %}
+                <li>{{ item.name }} x {{ item.qty }} - ₹{{ item.price }}</li>
+            {% endfor %}
+        </ul>
+        <h3>Total Paid: ₹{{ order.total_amount }}</h3>
+    </div>
+</body>
+</html>

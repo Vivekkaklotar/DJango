@@ -1,0 +1,6 @@
+Comparison: Django vs Flask
+
+- Django is a batteries-included full-stack framework with built-in ORM, Admin panel, Authentication, and Security, while Flask is a lightweight micro-framework offering total flexibility where developers select their own database and form libraries.
+
+- Daily App Example (Zomato / Instagram):
+  Django is far better for building complex apps like Zomato or Instagram because it natively provides user role authentication, database ORM relationships (Restaurants, Reviews, Orders), an instant Admin dashboard for managing menu items, and scalable security out of the box.

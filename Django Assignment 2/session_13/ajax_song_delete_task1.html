@@ -1,0 +1,22 @@
+<!-- song_list.html -->
+<ul id="song-list">
+    <li id="song-1">
+        Bohemian Rhapsody <button onclick="deleteSong(1)" class="btn btn-sm btn-danger">Delete</button>
+    </li>
+</ul>
+
+<script>
+function deleteSong(songId) {
+    fetch(`/api/songs/${songId}/`, {
+        method: 'DELETE',
+        headers: {
+            'X-CSRFToken': '{{ csrf_token }}'
+        }
+    })
+    .then(response => {
+        if(response.ok) {
+            document.getElementById(`song-${songId}`).remove();
+        }
+    });
+}
+</script>

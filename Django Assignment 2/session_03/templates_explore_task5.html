@@ -1,0 +1,25 @@
+<!-- templates/explore.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Explore Trending Playlists{% endblock %}
+
+{% block content %}
+<h2 class="mb-4 font-weight-bold">Trending Playlists & Top Spotlights</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for i in "123456" %}
+    <div class="col">
+        <div class="card h-100 shadow-sm border-0">
+            <img src="https://via.placeholder.com/300x180/198754/FFFFFF?text=Playlist+{{ i }}" class="card-img-top" alt="Card Image">
+            <div class="card-body">
+                <h5 class="card-title font-weight-bold">Top Hits Volume {{ i }}</h5>
+                <p class="card-text">Explore the most played tracks and trending tracks of the week on StreamHub.</p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+                <button class="btn btn-outline-success w-100">Listen Now</button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
